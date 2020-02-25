@@ -1,0 +1,97 @@
+A. Functional Requirements
+
+-I have a controls for the audio source to change volume or position in song.
+
+-My three sliders control the following properties:
+	-Amount of distortion in the sound
+	-Radius of points for each frequency value
+	-Alpha of points for each frequency value
+
+-Four checkboxes control following properties:
+	-Invert color filter
+	-Tint purple filter
+	-Add neon (green) noise
+	-Grayscale filter
+
+-My radio buttons allow users to choose between frequency or waveform data to display.
+
+-I have a dropdown control to select between 4 audio tracks
+
+-I included a fullscreen button
+
+=====================================================
+
+B. UI Design & Interaction
+
+-All my controls and widgets are labeled and straight foward to what they control.
+
+-Interface was custom designed by me using dat.gui
+
+-I use FlexBox to center the canvas on the screen no matter the screen size
+
+======================================================
+
+C. Canvas API & Experience
+
+-Use bitmap effects to implement 4 different color filters
+
+-Audio data is represented in the following shapes
+	-Lines: use to draw a line graph of the frequency values
+	-Bezier Curve: a curve that follows the waveform or frequency line graph with control points (curve height) controlled by average of all audio data values.
+	-Cubic curve: one curve drawn in each channel, with height matching the average level of all the audio data values
+	-Gradient: cubic curve drawn in each channel filled and stroked with gradient, showing the value of the overall audio data, with blue meaning lower, and more red meaning higher
+	-Circles: a circle is drawn at each audio data point at the height of its value, size and opacity controlled by user
+	-Rectangles: channels (the average of all the audio data values in that channel) are drawn corresponding to the channel number controlled bu user
+
+========================================================
+
+D. Web Audio API & Experience
+
+-User can control which is displayed frequency or waveform data
+
+-Distortion node is added and controlled by user with a slider
+
+=========================================================
+
+E. HTML/CSS & Media
+
+-CSS and HTML is valid
+
+-I use the Roboto Condensed font for the UI: https://fonts.google.com/specimen/Roboto+Condensed
+
+-I make use of flexbox (Modern web layout technology) and the dat.gui library
+
+==========================================================
+
+F. Code Requirements
+
+-I made use of the ES6 Module Pattern
+
+-Code is well commented
+
+-Function I use to set the distortion curve (waveShaperNode) was found here and slightly modified by me:
+https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion
+
+==========================================================
+
+G. Impact
+
+The areas I think I went above and beyond were in the visualization itself and the GUI I designed.
+
+For the visualization the areas I think I went above in beyond were in the representation of sound.
+The channel number control changes how you can view and interpret the audio data by taking the average from each channel. Showing a different visualization with each different channel number.
+Besides that I really tried to make my bezier curve requirement interesting, at least more so than my quadratic curves. My bezier curve moves with the sound data, changes with the channel number, and reflects the average level of the sound.
+
+For the GUI i used the dat.gui library, I obtained the information I needed to use it and library here:
+https://workshop.chromeexperiments.com/examples/gui/#1--Basic-Usage
+My GUI is minimalist and very functional, with all the controls responding cleanly to user input. I had to take extra time and effort to get the library working and figure out how to implement the controls I wanted.
+Along with that I made sure my visualization is very responsive, and works on all screen sizes for common monitors/laptops.
+
+Some struggles I had while making the program was with the custom audio node. I tried to implement a bass boost filter using the Biquad Filter and after trying for hours I couldn't get it to work.
+Even the distortion control, which is just a wave shaper node, I don't think is functioning properly as I don't see the changes in the visualization, and the sound clips when the distortion gets too high.
+I tried to get it working best I can and the result is what I have in my final project, which definitely distorts the sound, but not cleanly.
+If i had more time on the project I would've implemented the bass boost filter properly using the low shelf filter of the biquad filter, and I would've added more controls to adjust the visual elements on screen.
+I also would've liked to have my bezier curve to change more drastically with the sound, as it is it does follow the overall average of all the sound, but I wish the changes in the sound average were more visible in the bezier curve like they are in the quadratic curves.
+
+I worked on the project alone so all contributions to the project were my own, besides the code I used for reference in the in class examples and for the makeDistortionCurve function.
+If I had to grade myself on the project I would give myself an A-, or 92%. I did go meet all the project requirements to my knowledge, and I did go above and beyond the writeup, but I could've done more to increase the impact.
